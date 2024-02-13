@@ -4,6 +4,10 @@ Behavior-Driven Development (BDD) is a software development approach that emphas
 
 Gherkin is a domain-specific language that enables you to describe business behavior without the need to go into detail about implementation. It is primarily used to write structured tests that can be automated to test your application.
 
+In-Depth article on "good" gherkin for understanding:
+
+https://automationpanda.com/2017/01/30/bdd-101-writing-good-gherkin/
+
 ## Overview of Gherkin
 
 Gherkin uses a set of special keywords to give structure and meaning to executable specifications. The primary keywords are:
