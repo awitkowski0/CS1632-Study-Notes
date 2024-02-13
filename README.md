@@ -4,6 +4,19 @@ This is an adapted list of resources that were provided by originally by Profess
 
 The midterm is going to be **open book** but **individual work**.  
 
+## Table of Contents
+
+- [Testing Theory and Terminology](#testing-theory-and-terminology)
+- [Requirements Analysis](#requirements-analysis)
+- [Test Plans](#test-plans)
+- [Defect Reporting](#defect-reporting)
+- [Automated Testing](#automated-testing)
+- [Unit Testing](#unit-testing)
+- [TDD (Test-Driven Development)](#tdd-test-driven-development)
+- [BDD (Behavior-Driven Development)](#bdd-behavior-driven-development)
+- [Automated (Web) Systems Testing](#automated-web-systems-testing)
+
+
 ## TESTING THEORY AND TERMINOLOGY
 
 * Exhaustive Testing Impossibility: Even a single method can have an enormous number of input combinations, making it impractical to test every scenario. Consider the range of inputs, different states of the system, and interaction with other components, all of which exponentially increase complexity.
@@ -20,7 +33,7 @@ The midterm is going to be **open book** but **individual work**.
 * Verification vs Validation: Verification checks if the product was built right (i.e., matches the specified requirements), while validation checks if the right product was built (i.e., fulfills its intended use).
 * Requirements Validation Checks: Validity, completeness, consistency, realism, ambiguity, and verifiability are essential qualities of well-defined requirements, ensuring they are achievable, clear, and testable.
 * Functional vs Non-Functional Requirements: Functional requirements define specific behavior or functions, while non-functional requirements specify criteria that can be used to judge the operation of a system, such as performance, usability, reliability, etc.
-* 
+  
 ## TEST PLANS
 
 Test Plans are critical for ensuring systematic and efficient testing of software applications. They define the scope, approach, resources, and schedule of intended test activities.
@@ -56,25 +69,85 @@ Regression testing is vital for verifying that new changes have not adversely af
 
 ## DEFECT REPORTING
 
-* Defect vs Enhancement: A defect is a flaw in the software that causes it to behave unexpectedly or produce incorrect results, whereas an enhancement is a new feature or improvement to existing functionality.
-* Explicit vs Implicit Requirements: Explicit requirements are clearly stated in the documentation, while implicit requirements are unspoken, assumed qualities or features expected by users.
-* Releasing Software with Known Bugs: This happens when the cost or impact of fixing a bug is outweighed by the need to meet deadlines or when a bug's impact is deemed non-critical.
-* Coding Style and Defects: While bad coding style can lead to maintenance challenges, it does not constitute a functional defect unless it directly leads to incorrect behavior.
+### Defect vs Enhancement
 
-* Be able to explain why implicit requirements make it sometimes hard to tell whether something is a defect or an enhancement.
-* Be able to explain why sometimes software is released with known bugs inside them.
-* Be able to explain why bad coding style is not a defect.
-* Be able to explain what triage and sub-triage are.
-* Be able to define all terminology introduced or fill in the blank.
-* **Be able to critique an example defect report on what problems it may have.**
-  * Problems with preciseness and reproducibility.
+- **Defect**: A flaw in the software that causes it to behave unexpectedly or produce incorrect results. Defects violate explicit or implicit requirements.
+- **Enhancement**: A suggestion for new features or improvements to existing functionality that does not address a flaw but proposes an addition or modification.
+
+### Explicit vs Implicit Requirements
+
+- **Explicit Requirements**: Clearly defined and documented requirements in the Software Requirements Specification (SRS). They include both functional and non-functional aspects.
+- **Implicit Requirements**: Assumed qualities or features expected by users based on the application domain, even though they're not documented in the SRS. Violations of implicit requirements are still considered defects.
+
+### Releasing Software with Known Bugs
+
+Software may be released with known defects when:
+- The cost or impact of fixing a bug outweighs the benefits.
+- The bug's impact is considered non-critical or has a manageable workaround.
+- Meeting deadlines is prioritized over achieving zero known defects.
+
+### Coding Style and Defects
+
+- While bad coding style can lead to maintenance challenges and potentially increase the likelihood of future defects, it does not constitute a functional defect unless it directly causes incorrect software behavior.
+
+### Triage and Sub-Triage
+
+- **Triage**: The process where stakeholders review reported defects to determine their validity, severity, priority, and assignment for resolution.
+- **Sub-Triage**: In larger projects, an additional level of triage may occur within subsystems to further prioritize and assign defects to specific developers or teams.
+
+### Reporting Defects
+
+A typical defect report includes:
+- **Summary**: A concise description of the problem.
+- **Description**: Detailed information about the defect.
+- **Reproduction Steps**: Clear steps to reproduce the defect, including any preconditions.
+- **Expected vs Observed Behavior**: A description of what was expected and what was actually observed.
+- **Impact**: The potential impact on stakeholders.
+- **Severity**: The seriousness of the defect.
+- **Priority**: The urgency of addressing the defect.
+
+### Common Problems in Defect Reports
+
+- **Lack of Preciseness**: Vague descriptions that make it hard to understand or reproduce the defect.
+- **Reproducibility Issues**: Reports that do not provide a consistent way to reproduce the defect.
+- Reports lacking independence, implying that defects depend on the outcomes of other tests or conditions outside the control of the testing process.
+
+Effective defect reporting is essential for maintaining software quality, facilitating the timely resolution of issues, and ensuring that software meets both explicit and implicit requirements.
 
 ## AUTOMATED TESTING
-* Pros and Cons of Automated Testing: Automation can significantly speed up testing and increase coverage but may be brittle (easily broken by minor changes) and narrow (limited to scenarios explicitly programmed into tests).
-* Be able to discuss in-depth of the pros and cons of automated testing.
-  * Why automated testing can be brittle and narrow.
-* Be able to explain what test automation looks like in a blackbox testing context and a whitebox testing context.
-* 
+
+Automated testing plays a crucial role in modern software development, offering significant advantages over manual testing by automating repetitive tasks.
+
+### Pros and Cons of Automated Testing
+
+- **Pros**:
+  - **Speed and Efficiency**: Automation can execute a large number of tests quickly, significantly speeding up the testing process.
+  - **Increased Coverage**: Automated tests can run more frequently, covering more features and scenarios.
+  - **Reproducibility**: Automated tests can be executed with the same precision every time, ensuring consistent results.
+  - **Cost Reduction**: Over time, automation reduces the time and resources needed for testing.
+
+- **Cons**:
+  - **Brittleness**: Automated tests can be sensitive to minor changes in the software or UI, requiring maintenance to keep tests up to date.
+  - **Narrow Focus**: Tests only cover scenarios that have been explicitly programmed, potentially missing unforeseen issues.
+  - **Initial Setup Time**: Setting up an automated testing framework requires time and skilled resources.
+  - **Tool Dependency**: Reliance on specific tools or frameworks can introduce learning curves and tool-specific limitations.
+
+### Automated Testing in Different Contexts
+
+- **Blackbox Testing Context**: Automated blackbox testing focuses on testing the software from an external perspective, without knowledge of the internal workings. This approach uses the application's UI or API to test functionality against specified requirements.
+
+- **Whitebox Testing Context**: In contrast, automated whitebox testing involves testing the internal structures or workings of an application. This approach is more granular, allowing tests to interact directly with the application's code, often utilizing frameworks like JUnit for unit testing.
+
+### Implementation Considerations
+
+Automated testing requires a balance between the depth of testing and the maintenance effort. While it offers significant advantages in speed and efficiency, the potential for tests to become brittle or too narrowly focused necessitates careful planning and ongoing maintenance. Additionally, combining automated testing with manual testing strategies can provide comprehensive coverage, leveraging the strengths of both approaches for optimal software quality assurance.
+
+### Practical Application
+
+For both blackbox and whitebox testing contexts, automated testing frameworks such as Selenium for web applications and JUnit for Java applications offer powerful tools for developing robust test suites. These frameworks support the creation of tests that can simulate user interactions, verify application behavior, and ensure that both front-end and back-end components function correctly as expected.
+
+The choice between blackbox and whitebox automated testing approaches depends on the specific goals of the testing effort, the nature of the application under test, and the available resources and expertise.
+
 ## UNIT TESTING
 
 Unit Testing is a fundamental practice in software development, focusing on testing individual components or units of code in isolation to ensure they function as intended.
